@@ -91,7 +91,7 @@ class GuzzleTransport implements TransportInterface
                 'request' => $Request,
                 'transport' => $this,
                 'headers' => $headers,
-                '_data' => json_decode($response),
+                '_data' => json_decode($response, true),
             ]);
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $Response = $Request->createErrorResponse([

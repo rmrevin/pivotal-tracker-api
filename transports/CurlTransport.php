@@ -110,7 +110,7 @@ class CurlTransport implements TransportInterface
                 'api' => $this->api,
                 'request' => $Request,
                 'headers' => $this->prepareHeaders($headers),
-                '_data' => json_decode($response),
+                '_data' => json_decode($response, true),
             ]);
         }
 
