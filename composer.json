@@ -1,0 +1,37 @@
+{
+  "name": "rmrevin/pivotal-tracker-api",
+  "description": "Pivotal tracker API v5 wrapper",
+  "keywords": [
+    "pivotal",
+    "tracker",
+    "api"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "support": {
+    "issues": "https://github.com/rmrevin/pivotal-tracker-api/issues",
+    "source": "https://github.com/rmrevin/pivotal-tracker-api"
+  },
+  "authors": [
+    {
+      "name": "Revin Roman",
+      "email": "roman@rmrevin.com",
+      "homepage": "https://rmrevin.com/"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.0"
+  },
+  "require-dev": {
+    "guzzlehttp/guzzle": "~6.0"
+  },
+  "suggest": {
+    "guzzlehttp/guzzle": "For support GuzzleTransport"
+  },
+  "autoload": {
+    "psr-4": {
+      "rmrevin\\pivotal\\": ""
+    }
+  }
+}
