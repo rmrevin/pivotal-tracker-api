@@ -115,11 +115,12 @@ class StoriesApiHelper extends AbstractApi
 
     /**
      * @param integer $project_id
+     * @param integer $story_id
      * @param array $filter
      * @param integer $limit
      * @return PaginationResponse|ErrorResponse
      */
-    public function getStoryTransitionsList($project_id, $filter = [], $limit = 100)
+    public function getStoryTransitionsList($project_id, $story_id, $filter = [], $limit = 100)
     {
         $query = ['limit' => $limit];
 
@@ -139,7 +140,7 @@ class StoriesApiHelper extends AbstractApi
             $query['occurred_before'] = $filter['occurred_before'];
         }
 
-        return $this->api->client->createRequest('GET', "projects/$project_id/story_transitions", [
+        return $this->api->client->createRequest('GET', "projects/$project_id/stories/$story_id/transitions", [
             'responseClass' => 'rmrevin\pivotal\PaginationResponse',
             'query' => $query,
         ])->send();

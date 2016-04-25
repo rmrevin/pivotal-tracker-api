@@ -121,6 +121,39 @@ class ProjectsApiHelper extends AbstractApi
 
     /**
      * @param integer $project_id
+     * @param array $filter
+     * @param integer $limit
+     * @return PaginationResponse|ErrorResponse
+     */
+    public function getStoryTransitionsList($project_id, $filter = [], $limit = 100)
+    {
+        $query = ['limit' => $limit];
+
+        if (isset($filter['after'])) {
+            $query['occurred_after'] = $filter['after'];
+        }
+
+        if (isset($filter['occurred_after'])) {
+            $query['occurred_after'] = $filter['occurred_after'];
+        }
+
+        if (isset($filter['before'])) {
+            $query['occurred_before'] = $filter['before'];
+        }
+
+        if (isset($filter['occurred_after'])) {
+            $query['occurred_before'] = $filter['occurred_before'];
+        }
+
+        return $this->api->client->createRequest('GET', "projects/$project_id/story_transitions", [
+            'responseClass' => 'rmrevin\pivotal\PaginationResponse',
+            'query' => $query,
+        ])->send();
+
+    }
+
+    /**
+     * @param integer $project_id
      * @return ListResponse|ErrorResponse
      */
     public function getIntegrationsList($project_id)
