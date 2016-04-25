@@ -97,6 +97,7 @@ class StoriesApiHelper extends AbstractApi
 
         return $this->api->client->createRequest('GET', "projects/$project_id/stories", [
             'responseClass' => 'rmrevin\pivotal\PaginationResponse',
+            'query' => $query,
         ])->send();
     }
 
