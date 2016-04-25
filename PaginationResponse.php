@@ -29,10 +29,10 @@ class PaginationResponse extends ListResponse implements ResponseInterface
         $headers = $this->headers;
 
         $this->pagination = [
-            'total' => isset($headers['X-Tracker-Pagination-Total']) ? $headers['X-Tracker-Pagination-Total'] : 0,
-            'limit' => isset($headers['X-Tracker-Pagination-Limit']) ? $headers['X-Tracker-Pagination-Limit'] : 0,
-            'offset' => isset($headers['X-Tracker-Pagination-Offset']) ? $headers['X-Tracker-Pagination-Offset'] : 0,
-            'returned' => isset($headers['X-Tracker-Pagination-Returned']) ? $headers['X-Tracker-Pagination-Returned'] : 0,
+            'total' => isset($headers['X-Tracker-Pagination-Total']) ? (int)$headers['X-Tracker-Pagination-Total'][0] : 0,
+            'limit' => isset($headers['X-Tracker-Pagination-Limit']) ? (int)$headers['X-Tracker-Pagination-Limit'][0] : 0,
+            'offset' => isset($headers['X-Tracker-Pagination-Offset']) ? (int)$headers['X-Tracker-Pagination-Offset'][0] : 0,
+            'returned' => isset($headers['X-Tracker-Pagination-Returned']) ? (int)$headers['X-Tracker-Pagination-Returned'][0] : 0,
         ];
     }
 
